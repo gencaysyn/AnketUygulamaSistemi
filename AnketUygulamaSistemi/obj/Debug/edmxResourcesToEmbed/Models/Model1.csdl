@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AnketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
+    <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
+    <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
+    <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
+    <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
+    <EntitySet Name="SoruTipleri" EntityType="AnketModel.SoruTipleri" />
+  </EntityContainer>
+  <EntityType Name="Anket">
+    <Key>
+      <PropertyRef Name="anketId" />
+    </Key>
+    <Property Name="anketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="anketAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anketTur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anketSoruSayisi" Type="Int32" Nullable="false" />
+    <Property Name="anketKullaniciId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnketTipleri">
+    <Key>
+      <PropertyRef Name="turId" />
+    </Key>
+    <Property Name="turId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="turAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="eMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Secenekler">
+    <Key>
+      <PropertyRef Name="secenekId" />
+    </Key>
+    <Property Name="secenekId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="secenekMetni" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="soruId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sorular">
+    <Key>
+      <PropertyRef Name="soruId" />
+    </Key>
+    <Property Name="soruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="soruMetni" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="secenekSayisi" Type="Int32" Nullable="false" />
+    <Property Name="soruTipId" Type="Int32" Nullable="false" />
+    <Property Name="anketId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SoruTipleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="soruTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

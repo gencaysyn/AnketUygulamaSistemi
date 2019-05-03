@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnketModelStoreContainer" CdmEntityContainer="AnketEntities">
+    <EntitySetMapping Name="Anket">
+      <EntityTypeMapping TypeName="AnketModel.Anket">
+        <MappingFragment StoreEntitySet="Anket">
+          <ScalarProperty Name="anketKullaniciId" ColumnName="anketKullaniciId" />
+          <ScalarProperty Name="anketSoruSayisi" ColumnName="anketSoruSayisi" />
+          <ScalarProperty Name="anketTur" ColumnName="anketTur" />
+          <ScalarProperty Name="anketAdi" ColumnName="anketAdi" />
+          <ScalarProperty Name="anketId" ColumnName="anketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnketTipleri">
+      <EntityTypeMapping TypeName="AnketModel.AnketTipleri">
+        <MappingFragment StoreEntitySet="AnketTipleri">
+          <ScalarProperty Name="turAdi" ColumnName="turAdi" />
+          <ScalarProperty Name="turId" ColumnName="turId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="AnketModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="eMail" ColumnName="eMail" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="kAdi" ColumnName="kAdi" />
+          <ScalarProperty Name="adSoyad" ColumnName="adSoyad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Secenekler">
+      <EntityTypeMapping TypeName="AnketModel.Secenekler">
+        <MappingFragment StoreEntitySet="Secenekler">
+          <ScalarProperty Name="soruId" ColumnName="soruId" />
+          <ScalarProperty Name="secenekMetni" ColumnName="secenekMetni" />
+          <ScalarProperty Name="secenekId" ColumnName="secenekId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sorular">
+      <EntityTypeMapping TypeName="AnketModel.Sorular">
+        <MappingFragment StoreEntitySet="Sorular">
+          <ScalarProperty Name="anketId" ColumnName="anketId" />
+          <ScalarProperty Name="soruTipId" ColumnName="soruTipId" />
+          <ScalarProperty Name="secenekSayisi" ColumnName="secenekSayisi" />
+          <ScalarProperty Name="soruMetni" ColumnName="soruMetni" />
+          <ScalarProperty Name="soruId" ColumnName="soruId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoruTipleri">
+      <EntityTypeMapping TypeName="AnketModel.SoruTipleri">
+        <MappingFragment StoreEntitySet="SoruTipleri">
+          <ScalarProperty Name="soruTipi" ColumnName="soruTipi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

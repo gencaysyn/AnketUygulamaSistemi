@@ -1,0 +1,190 @@
+﻿@using AnketUygulamaSistemi.Models;
+@using AnketUygulamaSistemi.Controllers
+@model List<AnketTipleri>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/_KullaniciLayout.cshtml";
+}
+        
+
+        <div id="anketBilgi">
+            <label id="lblAnketAdi" class="col-sm-2 col-form-label">Anket Adı:</label>
+            <input type="text" class="form-control mr-sm-2" id="anketAdi" />
+            <label id="lblAnketTuru" class="col-sm-2 col-form-label">Anket Türü:</label>
+            @*@{ 
+                List<string> tip = new List<string>();
+                foreach(AnketTur t in Model)
+                {
+                    tip.Add(t.ad);
+                }
+                foreach(var x in ViewBag.)
+            }
+            <div>@ViewBag.</div>*@
+            <select class="form-control" id="anketTuru" selectedIndex="0">
+                <option value="0"></option>
+                @foreach (AnketTipleri item in Model)
+                {
+                    <option value="@item.turId">@item.turAdi</option>
+                }
+
+            </select>
+            <input type="button" class="btn btn-primary" id="olustur" value="Anket Oluştur" />
+        </div>
+
+        <div class="form-group">
+            <p id="pano" class="col-sm-10 col-form-label" style="display:none">Seçenek Eklemek için Sürükle Yazan Yazıyı Kutuya Sürükleyiniz</p>
+            <div id="div1" class="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <br>
+
+            <div id="divSoruMetni" style="display:none" class="input-group mb-3">
+                <label id="soru" class="col-sm-2 col-form-label"> Soru Metninizi Giriniz: </label>
+                <input type="text" class="form-control mr-sm-2" id="soruMetni" />
+                <input type="button" class="btn btn-primary" id="soruMetniKayit" value="Soru Metnini Kaydet" />
+            </div>
+
+
+            <div id="divSoruTipSec" class="form-group row col-sm-10" style="display:none">
+                <label class="col-sm-2 col-form-label">Soru Tipini Seçiniz</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="DDLSoruTipi" name="ddd" selectedIndex="0">
+                        <option value="option0"></option>
+                        <option value="option1">Boşluk Doldurma</option>
+                        <option value="option2">Seçmeli</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="divCevapTipi" class="form-group row col-sm-10" style="display:none">
+                <label class="col-sm-2 col-form-label">Cevap Tipini Seçiniz : </label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="DDLCevapTip">
+                        <option value="option0"></option>
+                        <option value="option1">Tek Seçmeli</option>
+                        <option value="option2">Çok Seçmeli</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="divSecmeliCevap" style="display:none">
+                <label id="cevap"> Cevap Metninizi Giriniz: </label>
+                <input type="text" id="secenek" />
+                <label id="drag1" draggable="true" ondragstart="drag(event)"> Sürükle </label>
+            </div>
+
+            <div id="divSoruKaydet" style="display:none">
+                <input type="button" class="btn btn-primary" id="soruKaydet" value="Soruyu Kaydet" />
+                <br>
+            </div>
+
+            <div id="divAnketOlustur" style="display:none">
+                <input type="button" class="btn btn-primary" id="anketOlustur" value="Anketi Oluştur" />
+                <input type="button" class="btn btn-primary" id="yeniSoru" value="Yeni Soru Ekle" />
+            </div>
+        </div>
+
+            <script>
+
+                $("#olustur").click(function () {
+                    if (document.getElementById("anketAdi").value == "" || document.getElementById("anketTuru").selectedIndex == 0)
+                        alert("Boş alan bırakamazsınız!");
+                    else {
+                        var anketAdi = document.getElementById("anketAdi").value;
+                        console.log("asdsad")
+                        var anketTuru = document.getElementById("anketTuru").value;
+                        $("#anketBilgi").hide(200);
+                        $("#divSoruMetni").show(200);
+                        $("#pano").show(200);
+                        $("#div1").show(200);
+                        gSoru.push(anketAdi);
+                        gSoru.push(anketTuru);
+                    }
+                    
+                });
+                $("#soruMetniKayit").click(function () {
+                    if (document.getElementById("soruMetni").value == "") {
+                        alert("Soru metnini boş bırakamazsınız!");
+                    }
+                    else {
+                        $("#divSoruMetni").hide(200);
+                        $("#divSoruTipSec").show(200);
+                        var texti = document.getElementById("soruMetni").value;
+                        var div1 = document.getElementById("div1");
+                        div1.insertAdjacentHTML('beforeend', "<div><label name='lblSoru'>" + texti + "</label></div>");
+                        gSoru.push(texti);//texti gSoru dizisine de ekleyen kısım
+
+                        document.getElementById("DDLSoruTipi").selectedIndex = 0;
+                        document.getElementById("DDLCevapTip").selectedIndex = 0;
+                    }
+                });
+
+                $("#DDLSoruTipi").change(function () {
+                    if ($(this)[0].selectedIndex == 1) {
+                        $("#divSoruTipSec").hide(200);
+                        $("#divSoruKaydet").show(200);
+                    }
+                    else if ($(this)[0].selectedIndex == 2) {
+                        $("#divSoruTipSec").hide(200);
+                        $("#divCevapTipi").show(200);
+                    }
+
+                });
+
+                $("#DDLCevapTip").change(function () {
+                    if ($(this)[0].selectedIndex == 1) {
+                        type = "radio";
+                    }
+                    else if ($(this)[0].selectedIndex == 2) {
+                        type = "checkbox";
+                    }
+
+                    $("#divCevapTipi").hide(200);
+                    $("#divSecmeliCevap").show(200);
+                    $("#divSoruKaydet").show(200);
+                });
+
+                $("#soruKaydet").click(function () {
+                    if ($("#DDLSoruTipi")[0].selectedIndex == 1) {
+                        gSoru.push("3$#$#");
+                    }
+                        
+                    else {
+                        if ($("#DDLCevapTip")[0].selectedIndex == 1)
+                            gSoru.push("2$#$#");
+                        else
+                            gSoru.push("1$#$#");
+                    }
+                    newQuest = gSoru.length;
+                    $("#divSoruKaydet").hide(200);
+                    $("#divAnketOlustur").show(200);
+                    $("#divSecmeliCevap").hide(200);
+                    document.getElementById("secenek").value = ""
+                    var myNode = document.getElementById("div1");
+                    myNode.innerHTML = '';
+                });
+
+                $("#anketOlustur").click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/home/kaydet",
+                        data: { gSoru: gSoru }
+                    })
+                    location.reload(true);//buraya anket oluşturma başarılı sayfası gelecek ya da yönlendirme
+                });
+
+                $("#yeniSoru").click(function () {
+                    $("#divAnketOlustur").hide(200);
+                    $("#divSoruMetni").show(200);
+                    var myNode = document.getElementById("div1");
+                    myNode.innerHTML = '';
+                    document.getElementById("soruMetni").value = "";
+                });
+
+                //    var g = document.createElement('select');
+                //    var o = document.createElement('option');
+                
+                //    g.innerHTML = "aşlsdkfhj"
+                //document.getElementById("anketTuru").appendChild(g);
+                
+ 
+                console.log($("#div1")[0].innerHTML)
+            </script>

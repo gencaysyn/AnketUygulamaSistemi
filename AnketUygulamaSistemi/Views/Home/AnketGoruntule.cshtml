@@ -1,0 +1,20 @@
+﻿@using AnketUygulamaSistemi.Models
+@model List<Anket>
+@{
+    ViewBag.Title = "AnketGoruntule";
+    Layout = "~/Views/_KullaniciLayout.cshtml";
+}
+
+<h2>AnketGoruntule</h2>
+<ul>
+
+
+    @foreach (var anket in Model)
+    {
+        string href = "/Home/AnketDetay/" + anket.anketId;
+        <li>
+            <a href=@href>@anket.anketAdi</a>
+        </li>
+    }
+</ul>
+

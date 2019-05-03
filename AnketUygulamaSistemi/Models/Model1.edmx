@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AnketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Anket">
+          <Key>
+            <PropertyRef Name="anketId" />
+          </Key>
+          <Property Name="anketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="anketAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="anketTur" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="anketSoruSayisi" Type="int" Nullable="false" />
+          <Property Name="anketKullaniciId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnketTipleri">
+          <Key>
+            <PropertyRef Name="turId" />
+          </Key>
+          <Property Name="turId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="turAdi" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="kAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="eMail" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Secenekler">
+          <Key>
+            <PropertyRef Name="secenekId" />
+          </Key>
+          <Property Name="secenekId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="secenekMetni" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="soruId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sorular">
+          <Key>
+            <PropertyRef Name="soruId" />
+          </Key>
+          <Property Name="soruId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="soruMetni" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="secenekSayisi" Type="int" Nullable="false" />
+          <Property Name="soruTipId" Type="int" Nullable="false" />
+          <Property Name="anketId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoruTipleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="soruTipi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AnketModelStoreContainer">
+          <EntitySet Name="Anket" EntityType="Self.Anket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnketTipleri" EntityType="Self.AnketTipleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Secenekler" EntityType="Self.Secenekler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoruTipleri" EntityType="Self.SoruTipleri" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AnketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
+          <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
+          <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
+          <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
+          <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
+          <EntitySet Name="SoruTipleri" EntityType="AnketModel.SoruTipleri" />
+        </EntityContainer>
+        <EntityType Name="Anket">
+          <Key>
+            <PropertyRef Name="anketId" />
+          </Key>
+          <Property Name="anketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="anketAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="anketTur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="anketSoruSayisi" Type="Int32" Nullable="false" />
+          <Property Name="anketKullaniciId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnketTipleri">
+          <Key>
+            <PropertyRef Name="turId" />
+          </Key>
+          <Property Name="turId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="turAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Secenekler">
+          <Key>
+            <PropertyRef Name="secenekId" />
+          </Key>
+          <Property Name="secenekId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="secenekMetni" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="soruId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sorular">
+          <Key>
+            <PropertyRef Name="soruId" />
+          </Key>
+          <Property Name="soruId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soruMetni" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="secenekSayisi" Type="Int32" Nullable="false" />
+          <Property Name="soruTipId" Type="Int32" Nullable="false" />
+          <Property Name="anketId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoruTipleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soruTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnketModelStoreContainer" CdmEntityContainer="AnketEntities">
+          <EntitySetMapping Name="Anket">
+            <EntityTypeMapping TypeName="AnketModel.Anket">
+              <MappingFragment StoreEntitySet="Anket">
+                <ScalarProperty Name="anketKullaniciId" ColumnName="anketKullaniciId" />
+                <ScalarProperty Name="anketSoruSayisi" ColumnName="anketSoruSayisi" />
+                <ScalarProperty Name="anketTur" ColumnName="anketTur" />
+                <ScalarProperty Name="anketAdi" ColumnName="anketAdi" />
+                <ScalarProperty Name="anketId" ColumnName="anketId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnketTipleri">
+            <EntityTypeMapping TypeName="AnketModel.AnketTipleri">
+              <MappingFragment StoreEntitySet="AnketTipleri">
+                <ScalarProperty Name="turAdi" ColumnName="turAdi" />
+                <ScalarProperty Name="turId" ColumnName="turId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="AnketModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="eMail" ColumnName="eMail" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kAdi" ColumnName="kAdi" />
+                <ScalarProperty Name="adSoyad" ColumnName="adSoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secenekler">
+            <EntityTypeMapping TypeName="AnketModel.Secenekler">
+              <MappingFragment StoreEntitySet="Secenekler">
+                <ScalarProperty Name="soruId" ColumnName="soruId" />
+                <ScalarProperty Name="secenekMetni" ColumnName="secenekMetni" />
+                <ScalarProperty Name="secenekId" ColumnName="secenekId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sorular">
+            <EntityTypeMapping TypeName="AnketModel.Sorular">
+              <MappingFragment StoreEntitySet="Sorular">
+                <ScalarProperty Name="anketId" ColumnName="anketId" />
+                <ScalarProperty Name="soruTipId" ColumnName="soruTipId" />
+                <ScalarProperty Name="secenekSayisi" ColumnName="secenekSayisi" />
+                <ScalarProperty Name="soruMetni" ColumnName="soruMetni" />
+                <ScalarProperty Name="soruId" ColumnName="soruId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoruTipleri">
+            <EntityTypeMapping TypeName="AnketModel.SoruTipleri">
+              <MappingFragment StoreEntitySet="SoruTipleri">
+                <ScalarProperty Name="soruTipi" ColumnName="soruTipi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

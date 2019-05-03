@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        #div1 {
+            width: 1350px;
+            height: 350px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+            overflow-y: auto;
+        }
+
+        #hidden-form {
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+    <script>
+        var newQuest = 0;
+        var gSoru = [];
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        var type = "radio";
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            // var data = ev.dataTransfer.getData("text");
+            var texti = document.getElementById("secenek").value;
+            var i = newQuest
+            while (gSoru[i] != texti && i < gSoru.length) {
+                i++;
+            }
+            if (gSoru[i] != texti && texti != "") {
+                gSoru.push(texti);
+                ev.target.insertAdjacentHTML('beforeend', "<div style='width:100%'><input type='" + type + "' name='cevap'>" + texti + "</input></div>");
+            }
+            else if (texti == "") {
+                alert("Boş cevap ekleyemezsiniz!");
+            }
+            else {
+                alert("Aynı cevap zaten mevcut!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Anket Uygulama Sistemi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/Home/AnketGoruntule">Anasayfa <span class="sr-only">(current)</span></a>
+                @if (Session["Kullanici"] == null)
+                {
+                    <a class="nav-item nav-link" href="/Home/Index">Giriş Yap/Kayıt Ol</a>
+                }
+                else
+                {
+                    <a class="nav-item nav-link" href="/Home/Giris">Anket Ekle</a>
+                    <a class="nav-item nav-link" href="#">Kullanıcı Sayfası</a>
+                    <a class="nav-item nav-link" href="/Home/Logout">Çıkış Yap</a>
+                }
+
+
+            </div>
+
+
+        </div>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary" type="submit">Search</button>
+        </form>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

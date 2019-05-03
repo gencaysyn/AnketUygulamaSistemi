@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = "~/Views/_KullaniciLayout.cshtml";
+}
+
+@*<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Assets/css/login.css">
+    <title>Hello, world!</title>
+</head>
+<body>*@
+
+   
+<div class="container">
+    <div class="row justify-content-md-center">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-4 " }))
+        {
+            <div class="col col-lg-12">
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <label for="inputId" class="sr-only">Kullanıcı Adı</label>
+                <input type="text" id="inputId" name="id" class="form-control" placeholder="Email address" required="" autofocus="">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                @if (TempData["Error"] != null && TempData["Error"].ToString() != "")
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @TempData["Error"].ToString()
+                    </div>
+                }
+                <p class="mt-5 mb-3 text-muted">© 2019</p>
+            </div>
+        }
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-8" }))
+        {
+            <main class="col col-lg-12">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Register</div>
+                                <div class="card-body">
+
+                                    <div class="form-group row">
+                                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="fullName" class="form-control" name="fullName" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                        <div class="col-md-6">
+                                            <input type="email" id="eMail" class="form-control" name="eMail" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="userName" class="form-control" name="username" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" id="kPassword" name="kPassword" class="form-control" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Re-Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" id="kkPassword" name="kkPassword" class="form-control" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Register
+                                        </button>
+                                    </div>
+                                    @if (TempData["RegError"] != null && TempData["RegError"].ToString() != "")
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                            @TempData["RegError"].ToString()
+                                        </div>
+                                    }
+                                    @if (TempData["RegSuccess"] != null && TempData["RegSuccess"].ToString() != "")
+                                    {
+                                        <div class="alert alert-danger" style="background-color:#dff0d8; border-color: #d6e9c6; color: #3c763d;">
+                                            @TempData["RegSuccess"].ToString()
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        }
+        </div>
+    </div>
+    }
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        var password = document.getElementById("kPassword")
+        var confirm_password = document.getElementById("kkPassword");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
