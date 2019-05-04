@@ -204,13 +204,16 @@ namespace AnketUygulamaSistemi.Controllers
             int id = Convert.ToInt32(Session["Kullanici"]);
             ViewBag.id = id;
             ViewBag.kul = null;
+            List<Anket> anketler = new List<Anket>();
             using (AnketEntities db = new AnketEntities())
             {
                 Kullanici kul = new Kullanici();
                 kul = db.Kullanici.Where(x => x.id == id).FirstOrDefault();
                 ViewBag.kul = kul;
+                anketler = db.Anket.Where(x => x.anketKullaniciId == id).ToList();
             }
-                return View();
+            
+            return View(anketler);
         }
 
         public ActionResult AnketLog(FormCollection anket)
@@ -234,6 +237,82 @@ namespace AnketUygulamaSistemi.Controllers
 
             return RedirectToAction("AnketGoruntule");
         }
+
+        public ActionResult Rapor(int id)
+        {
+            List<Sonuc> sonuclar = new List<Sonuc>();
+            
+            using (AnketEntities db = new AnketEntities())
+            {
+                Anket anket = db.Anket.Where(x => x.anketId == id).FirstOrDefault();
+                List<Sorular> sorular = db.Sorular.Where(x => x.anketId == id).ToList();
+                
+                
+                foreach (var soru in sorular)
+                {
+                    Sonuc sonuc = new Sonuc();
+                    List<Secenekler> secenekler = new List<Secenekler>();
+                    sonuc.soruMetni = soru.soruMetni;
+                    sonuc.tip = soru.soruTipId;
+                    sonuc.count = db.Cevaplar.Where(x => x.soruId == soru.soruId).ToList().Count;//Yanlış olabilir
+                    if (sonuc.tip != 3)
+                    { 
+                        int counter = 0;
+                        secenekler = db.Secenekler.Where(x => x.soruId == soru.soruId).ToList();
+                        sonuc.secenekler = new List<Secenek>();
+                        foreach (var secenek in secenekler)
+                        {
+                            Secenek sec = new Secenek();
+                            sec.cevapMetin = secenek.secenekMetni;
+                            if (soru.soruTipId == 2)
+                                sec.cevaplamaSayisi = db.Cevaplar.Where(x => x.soruId == soru.soruId).Where(y => y.cevap == (counter.ToString())).ToList().Count;
+                            else
+                            {
+                                int count = 0;
+                                List<Cevaplar> cvp = db.Cevaplar.Where(x => x.soruId == soru.soruId).ToList();
+                                foreach(var c in cvp)
+                                {
+                                    String[] yanit = c.cevap.Split(',');
+                                    foreach(var y in yanit)
+                                    {
+                                        if (y == (counter.ToString()))
+                                            count++;
+                                    }
+                                }
+                                sec.cevaplamaSayisi = count;
+                            }
+                                
+                            
+                            counter++;
+                            sonuc.secenekler.Add(sec);
+                        }
+                    }
+                    else
+                    {
+                        List<Cevaplar> cvp = db.Cevaplar.Where(x => x.soruId == soru.soruId).ToList();
+                        sonuc.secenekler = new List<Secenek>();
+                        foreach (var yanit in cvp)
+                        {
+                            Secenek sec1 = new Secenek();
+                            sec1.cevaplamaSayisi = db.Cevaplar.Where(x => x.soruId == soru.soruId).ToList().Count;
+                            sec1.cevapMetin = yanit.cevap;
+                            sonuc.secenekler.Add(sec1);
+                        }
+                    }
+                    sonuclar.Add(sonuc);
+                }
+            }
+            //sonuc.soruMetni = "Degisti";
+            //Sonuc deneme = new Sonuc();
+            //deneme.count = 3;
+            //deneme.secenekler = new List<Secenek>();
+            //deneme.secenekler.Add(sec);
+            //deneme.soruMetni = "DEnemedenmdnemdnendeklj";
+            //deneme.tip = 1;
+            //sonuclar.Add(deneme);
+            return View(sonuclar);
+        }
+
         public ActionResult AnketGoruntule()
         {
             List<Soru> soru = new List<Soru>();

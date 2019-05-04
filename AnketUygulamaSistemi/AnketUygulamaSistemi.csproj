@@ -144,9 +144,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Secenek.cs" />
     <Compile Include="Models\Secenekler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Sonuc.cs" />
     <Compile Include="Models\Soru.cs" />
     <Compile Include="Models\Sorular.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -172,6 +174,7 @@
     <Content Include="Views\Home\AnketGoruntule.cshtml" />
     <Content Include="Views\Home\AnketDetay.cshtml" />
     <Content Include="Views\Home\KullaniciSayfasi.cshtml" />
+    <Content Include="Views\Home\Rapor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

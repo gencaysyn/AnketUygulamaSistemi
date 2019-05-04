@@ -1,0 +1,57 @@
+﻿@using AnketUygulamaSistemi.Models
+@model List<Sonuc>
+
+@{
+    ViewBag.Title = "Rapor";
+    Layout = "~/Views/_KullaniciLayout.cshtml";
+}
+
+<h2>Rapor</h2>
+<div class="container">
+    <div class="row">
+        @foreach (var sonuc in Model)
+        {
+            <div class="col-xs-6 col-md-6">
+                @sonuc.soruMetni; <br />
+                @foreach (var secenek in sonuc.secenekler)
+                {
+                    @secenek.cevapMetin
+                    if (sonuc.tip != 3)
+                    {
+                        <a>...</a>
+                        @secenek.cevaplamaSayisi
+                    }
+                    <br />
+                }
+                <br />
+            </div>
+            <div class="col-xs-6 col-md-6 col-md-push-4">
+                @if (sonuc.tip != 3)
+                {
+                    <a> grafik </a><br />
+                    <div id="piechart"></div>
+                }
+
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    //pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+            datasets: [{
+                data: [300, 50, 100, 40, 120],
+                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
