@@ -6,6 +6,12 @@
 }
 
 <h2>AnketGoruntule</h2>
+@if (TempData["sifreBasari"] != null && TempData["sifreBasari"].ToString() != "")
+{
+    <div class="alert alert-danger" style="background-color:#dff0d8; border-color: #d6e9c6; color: #3c763d;">
+        @TempData["sifreBasari"].ToString()
+    </div>
+}
 <ul>
 
 

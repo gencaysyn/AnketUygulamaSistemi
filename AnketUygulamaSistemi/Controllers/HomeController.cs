@@ -158,20 +158,45 @@ namespace AnketUygulamaSistemi.Controllers
             using(AnketEntities db=new AnketEntities())
             {
                 var sorular = db.Sorular.Where(x => x.anketId == id).ToList();
-                foreach (Sorular soru in sorular)
+                var anket = db.Anket.Where(x => x.anketId == id).FirstOrDefault();
+                if (anket == null)
                 {
-                    var secenekler = db.Secenekler.Where(x => x.soruId == soru.soruId).ToList();
-                    model.Add(soru, secenekler);
+                    TempData["AramaHata"] = ""+id+" koduna sahip bir anket bulunamadı!";
                 }
-
+                else
+                {
+                    foreach (Sorular soru in sorular)
+                    {
+                        var secenekler = db.Secenekler.Where(x => x.soruId == soru.soruId).ToList();
+                        model.Add(soru, secenekler);
+                    }
+                }
             }
             return View(model);
         }
 
         public ActionResult SifreDegistir(string eskiSifre, string yeniSifre, string tYeniSifre)
         {
-            //burada kaldık
-            return View();
+            int id = Convert.ToInt32(Session["Kullanici"]);
+            using (AnketEntities db = new AnketEntities())
+            {
+                Kullanici kul = new Kullanici();
+                kul = db.Kullanici.Where(x => x.id == id).FirstOrDefault();
+
+                if(kul.sifre == eskiSifre)
+                {
+                    kul.sifre = yeniSifre;
+                    db.SaveChanges();
+                    TempData["sifreBasari"] = "Sifre Değişimi Başarılı! Lütfen Giriş Yapınız";
+                    Session.Clear();
+                    return RedirectToAction("AnketGoruntule");
+                }
+                else
+                {
+                    TempData["sifreHata"] = "Mevcut şifrenizi yanlış girdiniz! Lütfen tekrar deneyin.";
+                    return RedirectToAction("KullaniciSayfasi");
+                }
+            }
         }
 
         public ActionResult KullaniciSayfasi()

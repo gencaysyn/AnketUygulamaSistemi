@@ -4,39 +4,49 @@
     ViewBag.Title = "AnketDetay";
     Layout = "~/Views/_KullaniciLayout.cshtml";
 }
-@using (Html.BeginForm("AnketLog", "Home",  FormMethod.Post, new { @class = "form-signin col col-lg-4 " }))
+@if (TempData["AramaHata"] != null && TempData["AramaHata"].ToString() != "")
 {
-    <input type="text" name="anketBaslikId" id="anketBaslikId" style="display:none" />
-
-    foreach (KeyValuePair<Sorular, List<Secenekler>> entry in Model)
+    <div class="alert alert-danger" role="alert">
+        @TempData["AramaHata"].ToString()
+    </div>
+}
+else
+{
+    using (Html.BeginForm("AnketLog", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-4 " }))
     {
-        <h2>@entry.Key.soruMetni</h2>
-        switch (entry.Key.soruTipId)
+    <input type = "text" name = "anketBaslikId" id = "anketBaslikId" style = "display:none"/>
+
+        foreach (KeyValuePair<Sorular, List<Secenekler>> entry in Model)
         {
-            case 1:
-                for (int i = 0; i < entry.Value.Count; i++)
-                {
-                    <input type="checkbox" name="@entry.Key.soruId" value="@i" />
+    <h2> @entry.Key.soruMetni </h2>
+            switch (entry.Key.soruTipId)
+            {
+                case 1:
+                    for (int i = 0; i < entry.Value.Count; i++)
+                    {
+                <input type = "checkbox" name = "@entry.Key.soruId" value = "@i"/>
                      @entry.Value[i].secenekMetni
-                    <br />
-                }
-                break;
-            case 2:
-                for (int i = 0; i<entry.Value.Count; i++)
-                {
-                    <input type="radio" name="@entry.Key.soruId" value="@i" />
-                        @entry.Value[i].secenekMetni
-                    <br />
-                }
-                break;
-            case 3:
-                <input type="text" name="@entry.Key.soruId"/>
-                break;
+                     <br/>
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < entry.Value.Count; i++)
+                    {
+                <input type = "radio" name = "@entry.Key.soruId" value = "@i"/>
+                     @entry.Value[i].secenekMetni
+                     <br/>
+                    }
+                    break;
+                case 3:
+            <input type = "text" name = "@entry.Key.soruId"/>
+                    break;
+            }
+
         }
-
+        <br/>
+        <br/>
+    <button type = "submit" class="btn btn-primary">Anketi Kaydet</button>
     }
-    <button type="submit" class="btn btn-primary">Anketi Kaydet</button>
-
 }
 <script>
     var url = window.location.pathname
