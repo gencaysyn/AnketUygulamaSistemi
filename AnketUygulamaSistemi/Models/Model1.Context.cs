@@ -27,6 +27,7 @@ namespace AnketUygulamaSistemi.Models
     
         public virtual DbSet<Anket> Anket { get; set; }
         public virtual DbSet<AnketTipleri> AnketTipleri { get; set; }
+        public virtual DbSet<Cevaplar> Cevaplar { get; set; }
         public virtual DbSet<Kullanici> Kullanici { get; set; }
         public virtual DbSet<Secenekler> Secenekler { get; set; }
         public virtual DbSet<Sorular> Sorular { get; set; }

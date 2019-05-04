@@ -167,14 +167,44 @@ namespace AnketUygulamaSistemi.Controllers
             }
             return View(model);
         }
+
+        public ActionResult SifreDegistir(string eskiSifre, string yeniSifre, string tYeniSifre)
+        {
+            //burada kaldık
+            return View();
+        }
+
+        public ActionResult KullaniciSayfasi()
+        {
+            int id = Convert.ToInt32(Session["Kullanici"]);
+            ViewBag.id = id;
+            ViewBag.kul = null;
+            using (AnketEntities db = new AnketEntities())
+            {
+                Kullanici kul = new Kullanici();
+                kul = db.Kullanici.Where(x => x.id == id).FirstOrDefault();
+                ViewBag.kul = kul;
+            }
+                return View();
+        }
+
         public ActionResult AnketLog(FormCollection anket)
         {
             using (AnketEntities db = new AnketEntities())
             {
-                
-                string a = anket["x"];
-                db.Secenekler.Where(x => x.secenekMetni == a);
-                
+                int anketId = Convert.ToInt32(anket["anketBaslikId"]);
+                String[] soruIds = new String[anket.Count];
+                soruIds = anket.AllKeys;
+                Cevaplar cevap;
+
+                for(int i = 1;i < anket.Count; i++)
+                {
+                    cevap = new Cevaplar();
+                    cevap.soruId = Convert.ToInt32(soruIds[i]);
+                    cevap.cevap = anket[i];
+                    db.Cevaplar.Add(cevap);
+                }
+                db.SaveChanges();
             }
 
             return RedirectToAction("AnketGoruntule");

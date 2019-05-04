@@ -3,6 +3,7 @@
   <EntityContainer Name="AnketEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
     <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
+    <EntitySet Name="Cevaplar" EntityType="AnketModel.Cevaplar" />
     <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
     <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
     <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
@@ -24,6 +25,14 @@
     </Key>
     <Property Name="turId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="turAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Cevaplar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="soruId" Type="Int32" Nullable="false" />
+    <Property Name="cevap" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Kullanici">
     <Key>

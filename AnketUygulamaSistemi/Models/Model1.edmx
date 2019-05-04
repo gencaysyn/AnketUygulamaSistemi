@@ -22,6 +22,14 @@
           <Property Name="turId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="turAdi" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Cevaplar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="soruId" Type="int" Nullable="false" />
+          <Property Name="cevap" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
         <EntityType Name="Kullanici">
           <Key>
             <PropertyRef Name="id" />
@@ -60,6 +68,7 @@
         <EntityContainer Name="AnketModelStoreContainer">
           <EntitySet Name="Anket" EntityType="Self.Anket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AnketTipleri" EntityType="Self.AnketTipleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cevaplar" EntityType="Self.Cevaplar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secenekler" EntityType="Self.Secenekler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />
@@ -72,6 +81,7 @@
         <EntityContainer Name="AnketEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
           <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
+          <EntitySet Name="Cevaplar" EntityType="AnketModel.Cevaplar" />
           <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
           <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
           <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
@@ -93,6 +103,14 @@
           </Key>
           <Property Name="turId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="turAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cevaplar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soruId" Type="Int32" Nullable="false" />
+          <Property Name="cevap" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -151,6 +169,15 @@
               <MappingFragment StoreEntitySet="AnketTipleri">
                 <ScalarProperty Name="turAdi" ColumnName="turAdi" />
                 <ScalarProperty Name="turId" ColumnName="turId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cevaplar">
+            <EntityTypeMapping TypeName="AnketModel.Cevaplar">
+              <MappingFragment StoreEntitySet="Cevaplar">
+                <ScalarProperty Name="cevap" ColumnName="cevap" />
+                <ScalarProperty Name="soruId" ColumnName="soruId" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

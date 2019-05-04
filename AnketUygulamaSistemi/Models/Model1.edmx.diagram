@@ -7,10 +7,11 @@
       <Diagram DiagramId="edf63e3026d9499a97e404815d4f1ab6" Name="Diagram1">
         <EntityTypeShape EntityType="AnketModel.Anket" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="AnketModel.AnketTipleri" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="AnketModel.Kullanici" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="AnketModel.Secenekler" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="AnketModel.Sorular" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="AnketModel.SoruTipleri" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnketModel.Cevaplar" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnketModel.Kullanici" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnketModel.Secenekler" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AnketModel.Sorular" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AnketModel.SoruTipleri" Width="1.5" PointX="6.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

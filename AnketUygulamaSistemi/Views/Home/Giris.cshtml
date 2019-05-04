@@ -11,15 +11,7 @@
             <label id="lblAnketAdi" class="col-sm-2 col-form-label">Anket Adı:</label>
             <input type="text" class="form-control mr-sm-2" id="anketAdi" />
             <label id="lblAnketTuru" class="col-sm-2 col-form-label">Anket Türü:</label>
-            @*@{ 
-                List<string> tip = new List<string>();
-                foreach(AnketTur t in Model)
-                {
-                    tip.Add(t.ad);
-                }
-                foreach(var x in ViewBag.)
-            }
-            <div>@ViewBag.</div>*@
+
             <select class="form-control" id="anketTuru" selectedIndex="0">
                 <option value="0"></option>
                 @foreach (AnketTipleri item in Model)

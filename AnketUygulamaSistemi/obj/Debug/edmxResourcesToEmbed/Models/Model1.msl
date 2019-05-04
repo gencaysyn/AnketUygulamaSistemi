@@ -20,6 +20,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Cevaplar">
+      <EntityTypeMapping TypeName="AnketModel.Cevaplar">
+        <MappingFragment StoreEntitySet="Cevaplar">
+          <ScalarProperty Name="cevap" ColumnName="cevap" />
+          <ScalarProperty Name="soruId" ColumnName="soruId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Kullanici">
       <EntityTypeMapping TypeName="AnketModel.Kullanici">
         <MappingFragment StoreEntitySet="Kullanici">

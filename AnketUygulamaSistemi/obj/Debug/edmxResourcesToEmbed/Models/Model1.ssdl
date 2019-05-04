@@ -17,6 +17,14 @@
     <Property Name="turId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="turAdi" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Cevaplar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soruId" Type="int" Nullable="false" />
+    <Property Name="cevap" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
   <EntityType Name="Kullanici">
     <Key>
       <PropertyRef Name="id" />
@@ -55,6 +63,7 @@
   <EntityContainer Name="AnketModelStoreContainer">
     <EntitySet Name="Anket" EntityType="Self.Anket" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AnketTipleri" EntityType="Self.AnketTipleri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cevaplar" EntityType="Self.Cevaplar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Secenekler" EntityType="Self.Secenekler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />

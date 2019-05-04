@@ -1,0 +1,150 @@
+﻿@using AnketUygulamaSistemi.Models
+@model List<Kullanici>
+@{
+    ViewBag.Title = "KullaniciSayfasi";
+    Layout = "~/Views/_KullaniciLayout.cshtml";
+}
+<br />
+<h2 class="text-center">Kullanici Bilgileri</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content ml-1" id="myTabContent">
+                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Tam Adı:</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @ViewBag.kul.adSoyad
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">E-posta</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @ViewBag.kul.eMail
+                                        </div>
+                                    </div>
+                                    <hr />
+
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Kullanıcı Adı:</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @ViewBag.kul.kAdi
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Şifre</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @ViewBag.kul.sifre
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                                Değiştir
+                                            </button>
+
+                                            <!-- Modal -->
+                                            @using (Html.BeginForm("SifreDegistir", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-8" }))
+                                            {
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Şifre Değiştir</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-md-8 col-5">
+                                                                        <label>Eski Şifreniz:</label>
+                                                                    </div>
+                                                                    <div class="col-md-8 col-6">
+                                                                        <input id="eskiSifre" class="form-control mr-sm-2" type="password" required=""/><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-md-8 col-5">
+                                                                        <label>Yeni Şifreniz:</label>
+                                                                    </div>
+                                                                    <div class="col-md-8 col-6">
+                                                                        <input id="yeniSifre" class="form-control mr-sm-2" type="password" required=""/><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-3 col-md-8 col-5">
+                                                                        <label>Tekrar Yeni Şifreniz:</label>
+                                                                    </div>
+                                                                    <div class="col-md-8 col-6">
+                                                                        <input id="tYeniSifre" class="form-control mr-sm-2" type="password" required=""/><br />
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            </div>
+                                    </div>
+                                    <hr />
+                                   
+                                    <hr />
+                                </div>
+                                <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                    Facebook, Google, Twitter Account that are connected to this account
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var password = document.getElementById("yeniSifre")
+    var confirm_password = document.getElementById("tYeniSifre");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
