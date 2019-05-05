@@ -255,15 +255,20 @@ namespace AnketUygulamaSistemi.Controllers
                     sonuc.soruMetni = soru.soruMetni;
                     sonuc.tip = soru.soruTipId;
                     sonuc.count = db.Cevaplar.Where(x => x.soruId == soru.soruId).ToList().Count;//Yanlış olabilir
+                    sonuc.soruId = soru.soruId;
                     if (sonuc.tip != 3)
                     { 
                         int counter = 0;
                         secenekler = db.Secenekler.Where(x => x.soruId == soru.soruId).ToList();
                         sonuc.secenekler = new List<Secenek>();
+                        int i = 0;
                         foreach (var secenek in secenekler)
                         {
                             Secenek sec = new Secenek();
+                            sonuc.cevap = new string[secenekler.Count];
+                            sonuc.cevapSayisi = new int[secenekler.Count];
                             sec.cevapMetin = secenek.secenekMetni;
+                            sonuc.cevap[i]=secenek.secenekMetni;
                             if (soru.soruTipId == 2)
                                 sec.cevaplamaSayisi = db.Cevaplar.Where(x => x.soruId == soru.soruId).Where(y => y.cevap == (counter.ToString())).ToList().Count;
                             else
@@ -280,11 +285,13 @@ namespace AnketUygulamaSistemi.Controllers
                                     }
                                 }
                                 sec.cevaplamaSayisi = count;
+                                sonuc.cevapSayisi[i] = count;
                             }
                                 
                             
                             counter++;
                             sonuc.secenekler.Add(sec);
+                            i++;
                         }
                     }
                     else

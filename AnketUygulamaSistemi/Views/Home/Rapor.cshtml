@@ -29,7 +29,8 @@
                 @if (sonuc.tip != 3)
                 {
                     <a> grafik </a><br />
-                    <div id="piechart"></div>
+                    <div id="@sonuc.soruId"></div>
+
                 }
 
             </div>
@@ -37,21 +38,77 @@
     </div>
 </div>
 
-<script>
-    //pie
-    var ctxP = document.getElementById("pieChart").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
-        type: 'pie',
-        data: {
-            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
-            datasets: [{
-                data: [300, 50, 100, 40, 120],
-                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
-            }]
-        },
-        options: {
-            responsive: true
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    // Load google charts
+    function keepCloning(objectpassed) {
+        if (objectpassed === null || typeof objectpassed !== 'object') {
+            return objectpassed;
         }
-    });
+        // give temporary-storage the original obj's constructor
+        var temporarystorage = objectpassed.constructor();
+        for (var key in objectpassed) {
+            temporarystorage[key] = keepCloning(objectpassed[key]);
+        }
+        return temporarystorage;
+    }
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+    let x = []
+    let y = []
+    var j = 0
+    @{
+        int i = 0;
+        foreach (var sonuc in Model)
+        {
+            @:var n = []
+            @:var v = []
+
+            foreach (var secenek in sonuc.secenekler)
+            {
+                @:n.push("@secenek.cevapMetin");
+                @:v.push("@secenek.cevaplamaSayisi")
+            }
+            @:var vInt = []
+            @:for (var i = 0; i < v.length; i++) {
+                @:vInt.push(parseInt(v[i]))
+            @:}
+
+            @:x.push(n)
+            @:y.push(vInt)
+            @:console.log("j:"+j)
+            @:console.log(x[x.length - 1])
+            @:console.log(y[y.length - 1])
+            @:var a = x[j]
+            @:var b = y[j]
+            @:google.charts.setOnLoadCallback(function () { drawChart(x[@i], y[@i],  @sonuc.soruId); });
+            @:j++;
+            i++;
+        }
+     }
+
+    //google.charts.setOnLoadCallback(function () { drawChart(n,v,a); }); // çalışıyor
+
+    // Draw the chart and set the chart values
+    function drawChart(n, v, a,j) {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Secenek', 'Oran'],
+            [n[0], v[0]],
+        ]);
+
+        for (i = 1; i < n.length; i++) {
+            data.addRows([
+                [n[i], v[i]]
+            ]);
+        }
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById("".concat(a)));
+        chart.draw(data, options);
+    }
 </script>
