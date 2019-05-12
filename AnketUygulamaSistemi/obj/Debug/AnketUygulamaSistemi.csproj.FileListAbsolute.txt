@@ -314,3 +314,161 @@ D:\genca\Documents\Visual Studio Works\AnketUygulamaSistemi\AnketUygulamaSistemi
 D:\genca\Documents\Visual Studio Works\AnketUygulamaSistemi\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csproj.CopyComplete
 D:\genca\Documents\Visual Studio Works\AnketUygulamaSistemi\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.dll
 D:\genca\Documents\Visual Studio Works\AnketUygulamaSistemi\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.pdb
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.dll.config
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.pdb
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.exe
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.exe.config
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.rsp
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.exe
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.exe.config
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.rsp
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.AppContext.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Console.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Compression.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Claims.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.ValueTuple.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.exe
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.exe.config
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.rsp
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.SqlServer.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Helpers.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Mvc.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Razor.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Razor.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.SqlServer.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Razor.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Razor.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Helpers.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Mvc.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Razor.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.Razor.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Helpers.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Mvc.resources.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csprojAssemblyReference.cache
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csproj.CoreCompileInputs.cache
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csproj.CopyComplete
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.dll
+C:\Users\Halil\Desktop\Sistem Programlama\Proje\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.pdb
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.dll.config
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\AnketUygulamaSistemi.pdb
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.exe
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.exe.config
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csc.rsp
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.exe
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.exe.config
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\csi.rsp
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.AppContext.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Console.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Compression.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.IO.Pipes.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Claims.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.ValueTuple.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.exe
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.exe.config
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\vbc.rsp
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\VBCSCompiler.exe
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.SqlServer.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Helpers.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Mvc.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Razor.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Deployment.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Razor.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\EntityFramework.SqlServer.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Razor.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Deployment.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Webpages.Razor.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Helpers.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\System.Web.Mvc.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Razor.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.Deployment.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Webpages.Razor.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Helpers.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\bin\tr\System.Web.Mvc.resources.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csprojAssemblyReference.cache
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csproj.CoreCompileInputs.cache
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.csproj.CopyComplete
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.dll
+C:\Users\genca\Desktop\AnketUygulamaSistemi - Kopya (3)\AnketUygulamaSistemi\obj\Debug\AnketUygulamaSistemi.pdb

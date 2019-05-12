@@ -4,6 +4,10 @@
     <EntitySetMapping Name="Anket">
       <EntityTypeMapping TypeName="AnketModel.Anket">
         <MappingFragment StoreEntitySet="Anket">
+          <ScalarProperty Name="gorunurluk" ColumnName="gorunurluk" />
+          <ScalarProperty Name="oTarih" ColumnName="oTarih" />
+          <ScalarProperty Name="sinir" ColumnName="sinir" />
+          <ScalarProperty Name="gTarih" ColumnName="gTarih" />
           <ScalarProperty Name="anketKullaniciId" ColumnName="anketKullaniciId" />
           <ScalarProperty Name="anketSoruSayisi" ColumnName="anketSoruSayisi" />
           <ScalarProperty Name="anketTur" ColumnName="anketTur" />
@@ -25,6 +29,15 @@
         <MappingFragment StoreEntitySet="Cevaplar">
           <ScalarProperty Name="cevap" ColumnName="cevap" />
           <ScalarProperty Name="soruId" ColumnName="soruId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IpAdresleri">
+      <EntityTypeMapping TypeName="AnketModel.IpAdresleri">
+        <MappingFragment StoreEntitySet="IpAdresleri">
+          <ScalarProperty Name="anketId" ColumnName="anketId" />
+          <ScalarProperty Name="ipAdres" ColumnName="ipAdres" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -6,59 +6,56 @@
     Layout = "~/Views/_KullaniciLayout.cshtml";
 }
 
-<h2>Rapor</h2>
+
+
 <div class="container">
-    <div class="row">
-        @foreach (var sonuc in Model)
-        {
-            <div class="col-xs-6 col-md-6">
-                @sonuc.soruMetni; <br />
-                @foreach (var secenek in sonuc.secenekler)
-                {
-                    @secenek.cevapMetin
+    <div class="col-md-12">
+        <input id="degistir" type="button" value="Grafik Tipini Değiştir" />
+        <h2 id="raporAdi">Rapor: </h2>
+        @{int j = 0;
+            foreach (var sonuc in Model)
+            {
+                j++;
+                @:<div class="col-xs-12 col-md-12 col-md-push-12">
                     if (sonuc.tip != 3)
                     {
-                        <a>...</a>
-                        @secenek.cevaplamaSayisi
+                        @:<a class="font-weight-bold">Soru @j : @sonuc.soruMetni </a>
+                        @:<div id="@sonuc.soruId'pie'" class="p1" style="display:none"></div> <br />
+                        @:<div id="@sonuc.soruId'bar'" class="b1" style=""></div> <br />
                     }
-                    <br />
-                }
-                <br />
-            </div>
-            <div class="col-xs-6 col-md-6 col-md-push-4">
-                @if (sonuc.tip != 3)
-                {
-                    <a> grafik </a><br />
-                    <div id="@sonuc.soruId"></div>
-
-                }
-
-            </div>
+                    else
+                    {
+                        <div class="col-xs-12 col-md-12">
+                            <a class="font-weight-bold">Soru @j : @sonuc.soruMetni </a><br /><br />
+                            @foreach (var secenek in sonuc.secenekler)
+                            {
+                                @secenek.cevapMetin
+                                <br />
+                            }
+                            <br />
+                            <br />
+                        </div>
+                    }
+                @:</div>
+            }
         }
     </div>
+    <br /><button id="cmd" class="btn btn-primary">PDF olarak indir</button><br /><br />
 </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="editor"></div>
 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 <script type="text/javascript">
     // Load google charts
-    function keepCloning(objectpassed) {
-        if (objectpassed === null || typeof objectpassed !== 'object') {
-            return objectpassed;
-        }
-        // give temporary-storage the original obj's constructor
-        var temporarystorage = objectpassed.constructor();
-        for (var key in objectpassed) {
-            temporarystorage[key] = keepCloning(objectpassed[key]);
-        }
-        return temporarystorage;
-    }
 
-        google.charts.load('current', { 'packages': ['corechart'] });
-
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.load('current', { 'packages': ['corechart'] });
+        
     let x = []
     let y = []
-    var j = 0
     @{
         int i = 0;
         foreach (var sonuc in Model)
@@ -78,21 +75,57 @@
 
             @:x.push(n)
             @:y.push(vInt)
-            @:console.log("j:"+j)
-            @:console.log(x[x.length - 1])
-            @:console.log(y[y.length - 1])
-            @:var a = x[j]
-            @:var b = y[j]
-            @:google.charts.setOnLoadCallback(function () { drawChart(x[@i], y[@i],  @sonuc.soruId); });
-            @:j++;
+            @:google.charts.setOnLoadCallback(function () { drawChart(x[@i], y[@i],  "@sonuc.soruId'pie'"); });
+            @:google.charts.setOnLoadCallback(function () { drawStuff(x[@i], y[@i],  "@sonuc.soruId'bar'"); });
+            
             i++;
         }
      }
 
-    //google.charts.setOnLoadCallback(function () { drawChart(n,v,a); }); // çalışıyor
+    function drawStuff(n, v, a) {
+        var data = new google.visualization.arrayToDataTable([
+            ['Cevap', 'Adet'],
+            [n[0], v[0]],
+        ]);
 
-    // Draw the chart and set the chart values
-    function drawChart(n, v, a,j) {
+        for (i = 1; i < n.length; i++) {
+            data.addRows([
+                [n[i], v[i]]
+            ]);
+        }
+
+        var options = {
+            width: 800,
+            legend: { position: 'none' },
+            chart: {
+                title: '',
+                subtitle: ''
+            },
+            axes: {
+                x: {
+                    0: { side: 'top', label: 'Cevaplar' } // Top x-axis.
+                }
+            },
+            bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById("".concat(a)));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    };
+
+    $("#degistir").click(function () {
+        var b = $(".p1")
+        if (!b.is(":visible")) {
+            $(".p1").show(1000);
+            $(".b1").hide(1000);
+        }
+        else {
+            $(".p1").hide(1000);
+            $(".b1").show(1000);
+        }
+    });
+    function drawChart(n, v, a) {
 
         var data = google.visualization.arrayToDataTable([
             ['Secenek', 'Oran'],
@@ -105,10 +138,44 @@
             ]);
         }
         // Optional; add a title and set the width and height of the chart
-        var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
+        var options = { 'title': "", 'width': 688, 'height': 500 };
 
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.PieChart(document.getElementById("".concat(a)));
         chart.draw(data, options);
     }
+
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+
+    $('#cmd').click(function () {
+        var element = document.getElementsByClassName('container')[0];
+        html2pdf(element);
+    });
+
+    //function change(btnId) {
+    //    console.log(btnId)
+    //    $("#" + btnId).click(function () {
+    //        var a = btnId + "'pie'"
+
+    //        console.log("BU A dır: " + a)
+
+    //        var b = document.getElementById(a)
+    //        console.log("Bilgi" + document.getElementById(btnId + "'bar'").style.visibility)
+    //        console.log(document.getElementById(btnId + "'bar'").style.visibility)
+    //        console.log("bilgi" + b.style.display)
+    //        if (b.style.display == "none") {
+    //            console.log("girdi")
+    //            document.getElementById(btnId + "'pie'").style.visibility = "visible"
+    //            document.getElementById(btnId + "'bar'").style.visibility = "visible"
+    //        } else {
+    //            document.getElementById(btnId + "'pie'").style.visibility = "visible"
+    //            document.getElementById(btnId + "'bar'").style.visibility = "visible"
+    //        }    
+    //    });
+    //}
+
 </script>

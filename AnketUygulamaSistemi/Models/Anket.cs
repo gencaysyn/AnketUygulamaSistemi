@@ -19,5 +19,9 @@ namespace AnketUygulamaSistemi.Models
         public string anketTur { get; set; }
         public int anketSoruSayisi { get; set; }
         public int anketKullaniciId { get; set; }
+        public Nullable<System.DateTime> gTarih { get; set; }
+        public Nullable<int> sinir { get; set; }
+        public Nullable<System.DateTime> oTarih { get; set; }
+        public Nullable<int> gorunurluk { get; set; }
     }
 }

@@ -5,22 +5,35 @@
     Layout = "~/Views/_KullaniciLayout.cshtml";
 }
 
-<h2>AnketGoruntule</h2>
 @if (TempData["sifreBasari"] != null && TempData["sifreBasari"].ToString() != "")
 {
     <div class="alert alert-danger" style="background-color:#dff0d8; border-color: #d6e9c6; color: #3c763d;">
         @TempData["sifreBasari"].ToString()
     </div>
 }
-<ul>
 
-
-    @foreach (var anket in Model)
-    {
-        string href = "/Home/AnketDetay/" + anket.anketId;
-        <li>
-            <a href=@href>@anket.anketAdi</a>
-        </li>
-    }
-</ul>
-
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Anket Adı</th>
+            <th scope="col">Anket Kategorisi</th>
+            <th scope="col">Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 1;}
+        @foreach (var anket in Model)
+        {
+            string href = "/Home/AnketDetay/" + anket.anketId;
+        <tr>
+            <th scope="row">@i</th>
+            <td>@anket.anketAdi</td>
+            <td>@anket.anketTur</td>
+            <td><a href=@href>Ankete Git</a></td>
+        </tr>
+        i++;
+        }
+        
+    </tbody>
+</table>

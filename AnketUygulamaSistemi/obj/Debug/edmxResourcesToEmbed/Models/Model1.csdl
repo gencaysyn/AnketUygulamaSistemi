@@ -4,6 +4,7 @@
     <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
     <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
     <EntitySet Name="Cevaplar" EntityType="AnketModel.Cevaplar" />
+    <EntitySet Name="IpAdresleri" EntityType="AnketModel.IpAdresleri" />
     <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
     <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
     <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
@@ -18,6 +19,10 @@
     <Property Name="anketTur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="anketSoruSayisi" Type="Int32" Nullable="false" />
     <Property Name="anketKullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="gTarih" Type="DateTime" Precision="0" />
+    <Property Name="sinir" Type="Int32" />
+    <Property Name="oTarih" Type="DateTime" Precision="0" />
+    <Property Name="gorunurluk" Type="Int32" />
   </EntityType>
   <EntityType Name="AnketTipleri">
     <Key>
@@ -33,6 +38,14 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="soruId" Type="Int32" Nullable="false" />
     <Property Name="cevap" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IpAdresleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ipAdres" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="anketId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Kullanici">
     <Key>

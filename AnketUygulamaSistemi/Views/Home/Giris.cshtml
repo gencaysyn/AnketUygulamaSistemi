@@ -28,7 +28,7 @@
             <div id="div1" class="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <br>
 
-            <div id="divSoruMetni" style="display:none" class="input-group mb-3">
+            <div id="divSoruMetni" style="display:none" class="input-group container">
                 <label id="soru" class="col-sm-2 col-form-label"> Soru Metninizi Giriniz: </label>
                 <input type="text" class="form-control mr-sm-2" id="soruMetni" />
                 <input type="button" class="btn btn-primary" id="soruMetniKayit" value="Soru Metnini Kaydet" />
@@ -56,11 +56,12 @@
                     </select>
                 </div>
             </div>
-
-            <div id="divSecmeliCevap" style="display:none">
-                <label id="cevap"> Cevap Metninizi Giriniz: </label>
-                <input type="text" id="secenek" />
-                <label id="drag1" draggable="true" ondragstart="drag(event)"> Sürükle </label>
+            <div class="container">
+                <div id="divSecmeliCevap" class="form-group row" style="display:none">
+                    <label id="cevap" class="col-lg-3 col-sm-3" style="text-align:center; line-height:38px;"> Cevap Metninizi Giriniz: </label>
+                    <input type="text" class="form-control col-sm-7 col-lg-7" id="secenek" />
+                    <label id="drag1" class="col-lg-2 col-sm-2" style="text-align:center; line-height:38px;" draggable="true" ondragstart="drag(event)"> Sürükle </label>
+                </div>
             </div>
 
             <div id="divSoruKaydet" style="display:none">
@@ -68,13 +69,43 @@
                 <br>
             </div>
 
+            
+
             <div id="divAnketOlustur" style="display:none">
                 <input type="button" class="btn btn-primary" id="anketOlustur" value="Anketi Oluştur" />
                 <input type="button" class="btn btn-primary" id="yeniSoru" value="Yeni Soru Ekle" />
             </div>
+            <div id="divAyar" style="display:none">
+                <div id="divSinir" class="form-group row col-sm-10">
+                    <label class="col-sm-2 col-form-label">Bir kullanıcı anketi kaç kez doldurabilsin:</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="sinirTip" required="">
+                            <option value="option0"></option>
+                            <option value="option1">Bir Kez</option>
+                            <option value="option2">Sınırsız</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-2 col-form-label">Anket sonuçları diğer kullanıcılar tarafından görülebilsin :</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="gorunurluk" required="">
+                            <option value="option0"></option>
+                            <option value="option1">Evet</option>
+                            <option value="option2">Hayır</option>
+                        </select>
+                    </div>
+                </div>
+                <label>Anketin Yayında Kalma Süresi (Gün)</label>
+                <input type="number" min="0" step="1" class="form-control mr-sm-2" id="gun" required=""/>
+                <div id="divAnketKaydet">
+                    <input type="button" class="btn btn-primary" id="anketKaydet" value="Anketi Kaydet" />
+                </div>
+
+            </div>
+            
         </div>
 
             <script>
+
 
                 $("#olustur").click(function () {
                     if (document.getElementById("anketAdi").value == "" || document.getElementById("anketTuru").selectedIndex == 0)
@@ -90,7 +121,7 @@
                         gSoru.push(anketAdi);
                         gSoru.push(anketTuru);
                     }
-                    
+
                 });
                 $("#soruMetniKayit").click(function () {
                     if (document.getElementById("soruMetni").value == "") {
@@ -138,7 +169,7 @@
                     if ($("#DDLSoruTipi")[0].selectedIndex == 1) {
                         gSoru.push("3$#$#");
                     }
-                        
+
                     else {
                         if ($("#DDLCevapTip")[0].selectedIndex == 1)
                             gSoru.push("2$#$#");
@@ -155,12 +186,46 @@
                 });
 
                 $("#anketOlustur").click(function () {
-                    $.ajax({
-                        type: "POST",
-                        url: "/home/kaydet",
-                        data: { gSoru: gSoru }
-                    })
-                    location.reload(true);//buraya anket oluşturma başarılı sayfası gelecek ya da yönlendirme
+                    $("#div1").hide(200)
+                    $("#pano").hide(200)
+                    $("#divAnketOlustur").hide(200)
+                    $("#divAyar").show(200)
+                });
+
+                $("#anketKaydet").click(function () {
+
+                    var day = parseInt(document.getElementById("gun").value)
+                    var option = $("#sinirTip")[0].selectedIndex
+                    var gorunurluk = $("#gorunurluk")[0].selectedIndex
+                    var a = 0
+
+                    if (option == 0) {
+                        alert("Sınır bilgisi seçiniz")
+                        return
+                    }
+                    a++
+                    if (document.getElementById("gun").value == "") {
+                        alert("Tarih bilgisini boş bırakamazsınız.");
+                        return
+                    }
+                    a++
+                    if (day > 365 || day <= 0) {
+                        alert("Gün bilgisi 1 ile 365 arasında olmalıdır");
+                        return
+                    }
+                    a++
+    
+                    if (a == 3) {
+                        gSoru.splice(2, 0, day);
+                        gSoru.splice(3, 0, option - 1);
+                        gSoru.splice(4, 0, gorunurluk - 1);
+                        $.ajax({
+                            type: "POST",
+                            url: "/home/kaydet",
+                            data: { gSoru: gSoru }
+                        })
+                        location.reload(true);//buraya anket oluşturma başarılı sayfası gelecek ya da yönlendirme
+                    }
                 });
 
                 $("#yeniSoru").click(function () {
@@ -173,10 +238,10 @@
 
                 //    var g = document.createElement('select');
                 //    var o = document.createElement('option');
-                
+
                 //    g.innerHTML = "aşlsdkfhj"
                 //document.getElementById("anketTuru").appendChild(g);
-                
- 
+
+
                 console.log($("#div1")[0].innerHTML)
             </script>

@@ -14,6 +14,10 @@
           <Property Name="anketTur" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="anketSoruSayisi" Type="int" Nullable="false" />
           <Property Name="anketKullaniciId" Type="int" Nullable="false" />
+          <Property Name="gTarih" Type="date" />
+          <Property Name="sinir" Type="int" />
+          <Property Name="oTarih" Type="date" />
+          <Property Name="gorunurluk" Type="int" />
         </EntityType>
         <EntityType Name="AnketTipleri">
           <Key>
@@ -29,6 +33,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="soruId" Type="int" Nullable="false" />
           <Property Name="cevap" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IpAdresleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ipAdres" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="anketId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -69,6 +81,7 @@
           <EntitySet Name="Anket" EntityType="Self.Anket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AnketTipleri" EntityType="Self.AnketTipleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cevaplar" EntityType="Self.Cevaplar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IpAdresleri" EntityType="Self.IpAdresleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secenekler" EntityType="Self.Secenekler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />
@@ -82,6 +95,7 @@
           <EntitySet Name="Anket" EntityType="AnketModel.Anket" />
           <EntitySet Name="AnketTipleri" EntityType="AnketModel.AnketTipleri" />
           <EntitySet Name="Cevaplar" EntityType="AnketModel.Cevaplar" />
+          <EntitySet Name="IpAdresleri" EntityType="AnketModel.IpAdresleri" />
           <EntitySet Name="Kullanici" EntityType="AnketModel.Kullanici" />
           <EntitySet Name="Secenekler" EntityType="AnketModel.Secenekler" />
           <EntitySet Name="Sorular" EntityType="AnketModel.Sorular" />
@@ -96,6 +110,10 @@
           <Property Name="anketTur" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="anketSoruSayisi" Type="Int32" Nullable="false" />
           <Property Name="anketKullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="gTarih" Type="DateTime" Precision="0" />
+          <Property Name="sinir" Type="Int32" />
+          <Property Name="oTarih" Type="DateTime" Precision="0" />
+          <Property Name="gorunurluk" Type="Int32" />
         </EntityType>
         <EntityType Name="AnketTipleri">
           <Key>
@@ -111,6 +129,14 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="soruId" Type="Int32" Nullable="false" />
           <Property Name="cevap" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IpAdresleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ipAdres" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="anketId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -156,6 +182,10 @@
           <EntitySetMapping Name="Anket">
             <EntityTypeMapping TypeName="AnketModel.Anket">
               <MappingFragment StoreEntitySet="Anket">
+                <ScalarProperty Name="gorunurluk" ColumnName="gorunurluk" />
+                <ScalarProperty Name="oTarih" ColumnName="oTarih" />
+                <ScalarProperty Name="sinir" ColumnName="sinir" />
+                <ScalarProperty Name="gTarih" ColumnName="gTarih" />
                 <ScalarProperty Name="anketKullaniciId" ColumnName="anketKullaniciId" />
                 <ScalarProperty Name="anketSoruSayisi" ColumnName="anketSoruSayisi" />
                 <ScalarProperty Name="anketTur" ColumnName="anketTur" />
@@ -177,6 +207,15 @@
               <MappingFragment StoreEntitySet="Cevaplar">
                 <ScalarProperty Name="cevap" ColumnName="cevap" />
                 <ScalarProperty Name="soruId" ColumnName="soruId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IpAdresleri">
+            <EntityTypeMapping TypeName="AnketModel.IpAdresleri">
+              <MappingFragment StoreEntitySet="IpAdresleri">
+                <ScalarProperty Name="anketId" ColumnName="anketId" />
+                <ScalarProperty Name="ipAdres" ColumnName="ipAdres" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -14,38 +14,56 @@ else
 {
     using (Html.BeginForm("AnketLog", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-4 " }))
     {
-    <input type = "text" name = "anketBaslikId" id = "anketBaslikId" style = "display:none"/>
-
-        foreach (KeyValuePair<Sorular, List<Secenekler>> entry in Model)
+        <input type="text" name="anketBaslikId" id="anketBaslikId" style="display:none" />
         {
-    <h2> @entry.Key.soruMetni </h2>
-            switch (entry.Key.soruTipId)
+            int j = 0;
+            foreach (KeyValuePair<Sorular, List<Secenekler>> entry in Model)
             {
-                case 1:
-                    for (int i = 0; i < entry.Value.Count; i++)
-                    {
-                <input type = "checkbox" name = "@entry.Key.soruId" value = "@i"/>
-                     @entry.Value[i].secenekMetni
-                     <br/>
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < entry.Value.Count; i++)
-                    {
-                <input type = "radio" name = "@entry.Key.soruId" value = "@i"/>
-                     @entry.Value[i].secenekMetni
-                     <br/>
-                    }
-                    break;
-                case 3:
-            <input type = "text" name = "@entry.Key.soruId"/>
-                    break;
+                <h2> @entry.Key.soruMetni </h2>
+                switch (entry.Key.soruTipId)
+                {
+                    case 1:
+                        <div class="@j">
+                            @for (int i = 0; i < entry.Value.Count; i++)
+                            {
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="@entry.Key.soruId" value="@i" required />
+                                        </div>
+                                    </div>
+                                    <label class="form-control">@entry.Value[i].secenekMetni</label>
+                                </div>
+                            }
+                        </div>
+                        break;
+                    case 2:
+                        <div class="@j">
+                            @for (int i = 0; i < entry.Value.Count; i++)
+                            {
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="@entry.Key.soruId" value="@i" required />
+                                        </div>
+                                    </div>
+                                    <label class="form-control">@entry.Value[i].secenekMetni</label>
+                                </div>
+                            }
+                        </div>
+                        break;
+                    case 3:
+                        <input class="form-control" type="text" name="@entry.Key.soruId" required />
+                        break;
+                }
+                j++;
             }
 
         }
-        <br/>
-        <br/>
-    <button type = "submit" class="btn btn-primary">Anketi Kaydet</button>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Anketi Kaydet</button>
+        <button type="button" id="sonucGoster" class="btn btn-primary">Sonuçları Görüntüle</button>
     }
 }
 <script>
@@ -53,6 +71,39 @@ else
     var val = url.split("/")
     var id = val[val.length - 1]
     $("#anketBaslikId")[0].value = id;
-    console.log(id)
+    for (var i = 0; i<@Model.Count; i++)
+    {
+        controlreq(i.toString(10))
+        console.log('.' + i.toString(10) + ' :checkbox[required]')
+    }
+        function controlreq(index)
+        {
+            var requiredCheckboxes = $('.' + index + ' :checkbox[required]');
+            requiredCheckboxes.change(function() {
+                if (requiredCheckboxes.is (':checked'))
+                {
+                   requiredCheckboxes.removeAttr('required');
+                }
+                else
+                {
+                   requiredCheckboxes.attr('required', 'required');
+                }
+            });
+    };
+
+    window.onload = function gorunur() {
+        if (@ViewBag.anketGorunurluk == 0) {
+            $("#sonucGoster").show(1);
+        } else {
+            $("#sonucGoster").hide(1);
+        }
+    }
+    $("#sonucGoster").click(function () {
+        @{
+            string href = "/Home/Rapor/" +ViewBag.anketId;
+            @:window.location= "@href"
+        }     
+        
+    });
 </script>
 

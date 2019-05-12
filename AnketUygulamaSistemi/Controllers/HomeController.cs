@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -81,6 +82,11 @@ namespace AnketUygulamaSistemi.Controllers
                 int counter = 0;
                 anket.anketAdi = gSoru[0].ToString();
                 anket.anketTur = gSoru[1].ToString();
+                DateTime bugun = DateTime.Now;
+                anket.oTarih = bugun;
+                anket.gTarih = bugun.AddDays(Convert.ToInt32(gSoru[2]));
+                anket.sinir = Convert.ToInt32(gSoru[3]);
+                anket.gorunurluk = Convert.ToInt32(gSoru[4]);
                 anket.anketKullaniciId = Convert.ToInt32(Session["kullanici"].ToString());
                 foreach(var text in gSoru)
                 {
@@ -94,7 +100,7 @@ namespace AnketUygulamaSistemi.Controllers
 
             List<Soru> sorular = new List<Soru>();
             int yeni = 0;
-            for (int i = 2; i < gSoru.Count; i++)
+            for (int i = 5; i < gSoru.Count; i++)
             {
                 if (gSoru[i] == "1$#$#" || gSoru[i] == "2$#$#" || gSoru[i] == "3$#$#")
                 {
@@ -145,23 +151,29 @@ namespace AnketUygulamaSistemi.Controllers
 
                 }
             }
-            /*using (AnketEntities db = new AnketEntities())
-            {
-                anket.anketSoruSayisi = db.Sorular.Where(x => x.anketId == anket.anketId).ToList().Count;
-                db.Anket.Add(anket);
-                db.SaveChanges();
-            }*/
         }
+
         public ActionResult AnketDetay(int id)
         {
-            Dictionary<Sorular, List<Secenekler>> model = new Dictionary<Sorular, List<Secenekler>>();   
-            using(AnketEntities db=new AnketEntities())
+            Dictionary<Sorular, List<Secenekler>> model = new Dictionary<Sorular, List<Secenekler>>();
+            string ip = Request.UserHostAddress;
+            using (AnketEntities db = new AnketEntities())
             {
                 var sorular = db.Sorular.Where(x => x.anketId == id).ToList();
                 var anket = db.Anket.Where(x => x.anketId == id).FirstOrDefault();
+                var ipAdres = db.IpAdresleri.Where(x => x.anketId == anket.anketId).Where(y => y.ipAdres == ip).FirstOrDefault();
+                DateTime tarih = Convert.ToDateTime(anket.gTarih);
+                int result = DateTime.Compare(tarih, DateTime.Now);
                 if (anket == null)
                 {
-                    TempData["AramaHata"] = ""+id+" koduna sahip bir anket bulunamadı!";
+                    TempData["AramaHata"] = "" + id + " koduna sahip bir anket bulunamadı!";
+                }
+                else if (result < 0) {//gecerlilik tarihine o günün de dahil olması için = kaldır
+                    TempData["AramaHata"] = "" + id + " koduna sahip bir anketin geçerlilik süresi dolmuştur!";
+                }
+                else if (ipAdres != null && anket.sinir == 0)
+                {
+                    TempData["AramaHata"] = "" + id + " koduna sahip anketi yalnızca defa doldurabilirsiniz!";
                 }
                 else
                 {
@@ -171,7 +183,10 @@ namespace AnketUygulamaSistemi.Controllers
                         model.Add(soru, secenekler);
                     }
                 }
+                ViewBag.anketId = anket.anketId;
+                ViewBag.anketGorunurluk = anket.gorunurluk;
             }
+
             return View(model);
         }
 
@@ -218,13 +233,18 @@ namespace AnketUygulamaSistemi.Controllers
 
         public ActionResult AnketLog(FormCollection anket)
         {
+            string ip = Request.UserHostAddress;
             using (AnketEntities db = new AnketEntities())
             {
                 int anketId = Convert.ToInt32(anket["anketBaslikId"]);
+                IpAdresleri ipAdres = new IpAdresleri();
+                ipAdres.ipAdres = ip;
+                ipAdres.anketId = anketId;
                 String[] soruIds = new String[anket.Count];
                 soruIds = anket.AllKeys;
                 Cevaplar cevap;
-
+                db.IpAdresleri.Add(ipAdres);
+           
                 for(int i = 1;i < anket.Count; i++)
                 {
                     cevap = new Cevaplar();
@@ -232,6 +252,7 @@ namespace AnketUygulamaSistemi.Controllers
                     cevap.cevap = anket[i];
                     db.Cevaplar.Add(cevap);
                 }
+                
                 db.SaveChanges();
             }
 
@@ -309,14 +330,6 @@ namespace AnketUygulamaSistemi.Controllers
                     sonuclar.Add(sonuc);
                 }
             }
-            //sonuc.soruMetni = "Degisti";
-            //Sonuc deneme = new Sonuc();
-            //deneme.count = 3;
-            //deneme.secenekler = new List<Secenek>();
-            //deneme.secenekler.Add(sec);
-            //deneme.soruMetni = "DEnemedenmdnemdnendeklj";
-            //deneme.tip = 1;
-            //sonuclar.Add(deneme);
             return View(sonuclar);
         }
 
@@ -327,31 +340,9 @@ namespace AnketUygulamaSistemi.Controllers
             using (AnketEntities db = new AnketEntities())
             {
                  anketler = db.Anket.ToList();
-
-                //var anket = db.Anket.Where(x => x.anketId == anketId).FirstOrDefault();
-               // List<Sorular> sorular = db.Sorular.Where(x => x.anketId == anketId).ToList();
-
-
-               
-                //for(int i=0; i<sorular.Count; i++)
-                //{
-                //    Soru tmp = new Soru();
-                //    tmp.soruMetni = sorular.ElementAt(i).soruMetni;
-                //    List<Secenekler> secenekler = db.Secenekler.Where(x => x.soruId == sorular[i].soruId).ToList();
-                //    for (int j = 0; j < sorular[i].secenekSayisi; j++)
-                //    {
-                //        soru[i].cevaplar[j] = secenekler[j].secenekMetni;
-                //    }
-                //    //tmp.cevaplar = ;
-
-                //    soru[i].soruMetni = sorular[i].soruMetni;
-                //    //soru[i].soruTipi=
-                //    soru[i].cevaplar = new List<String>();
-                    
-                //}
             }
 
-            //soru
+            
 
 
                 return View(anketler);

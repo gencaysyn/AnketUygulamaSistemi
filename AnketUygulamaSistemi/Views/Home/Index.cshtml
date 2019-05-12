@@ -9,12 +9,12 @@
             <div class="col col-lg-12">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputId" class="sr-only">Kullanıcı Adı</label>
-                <input type="text" id="inputId" name="id" class="form-control" placeholder="Email address" required="" autofocus="">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+                <input type="text" id="inputId" name="id" class="form-control" placeholder="Kullanıcı Adı" required="" autofocus="">
+                <label for="inputPassword" class="sr-only">Şifre</label>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Şifre" required="">
                 <div class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me"> Beni Hatırla
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -24,7 +24,7 @@
                         @TempData["Error"].ToString()
                     </div>
                 }
-                <p class="mt-5 mb-3 text-muted">© 2019</p>
+                
             </div>
         }
         @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-signin col col-lg-8" }))
@@ -34,42 +34,48 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="card">
-                                <div class="card-header">Register</div>
+                                <div class="card-header">Kaydol</div>
                                 <div class="card-body">
 
                                     <div class="form-group row">
-                                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                        <label for="full_name" class="col-md-4 col-form-label text-md-right">İsim</label>
                                         <div class="col-md-6">
                                             <input type="text" id="fullName" class="form-control" name="fullName" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Adresi</label>
                                         <div class="col-md-6">
                                             <input type="email" id="eMail" class="form-control" name="eMail" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Kullanıcı Adı</label>
                                         <div class="col-md-6">
                                             <input type="text" id="userName" class="form-control" name="username" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Password</label>
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Şifre</label>
                                         <div class="col-md-6">
                                             <input type="password" id="kPassword" name="kPassword" class="form-control" required="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Re-Password</label>
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Tekrar Şifre</label>
                                         <div class="col-md-6">
                                             <input type="password" id="kkPassword" name="kkPassword" class="form-control" required="">
                                         </div>
                                     </div>
+                                    <div>
+                                        <input type="checkbox" required />
+                                        <a href="" data-toggle="modal" data-target="#exampleModalScrollable">Kullanıcı Sözleşmesi</a>
+                                        <label>'ni okudum, kabul ediyorum</label>
+
+                                    </div>
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Register
+                                            Kaydol
                                         </button>
                                     </div>
                                     @if (TempData["RegError"] != null && TempData["RegError"].ToString() != "")
@@ -90,11 +96,44 @@
                     </div>
                 </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Kullanıcı Sözleşmesi</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Anket Uygulama Sistemini kullandığınız için teşekkür ederiz. Kullanıcı Sözleşmesi size sunduğumuz hizmetlerin şartlarını ve nasıl kullanılacağını açıklar. Anket Uygulama Sistemini kullanmanız durumunda bu sözleşmeyi kabul etmiş olursunuz.<br /><br />
+                                <h6>Ücretler ve Ödemeler</h6>
+                                Hizmetlerimiz için herhangi bir ücret ödemeniz gerekmemektedir. Sunulan hizmetlerimizin tamamından zaman sınırı olmadan faydalanabilirsiniz.<br /><br />
+                                <h6>Gizlilik</h6>
+                                Site içerisinde paylaşmış olduğunuz kişisel bilgileriniz üçüncü taraflarla paylaşılmamaktadır. Anket Uygulama Sistemi içerisinde kullanılmak üzere veri tabanımızda saklanacaktır.<br /><br />
+                                <h6>Mülkiyet</h6>
+                                Site içerinde hazırladığınız anketlerin ve vermiş olduğunuz cevapların mülkiyeti tarafımıza aittir. Site sahiplerinin istekleri doğrultusunda kullanılabilir.<br /><br />
+                                <h6>Uygun Kullanım</h6>
+                                Hizmetleri kullanırken davranışlarınızın, İçeriğinizin ve başkalarıyla olan iletişiminizin sorumluluğu size aittir. Hizmetleri kullanırken aşağıdaki gerekliliklere uymalısınız:<br /><br />
+                                - Site içeriğinden faydalanabilmek için 7 yaşından büyük olmanız gerekmektedir.<br /><br />
+                                - Rekabetçi bir ürün veya hizmet oluşturma amacıyla veya başka herhangi bir rekabet amacıyla hizmetleri satın alamaz, kullanamaz ve hizmetlere erişemezsiniz.<br /><br />
+                                - Hizmetlerimizi, normal işleyişlerine müdahale etmek ya da arayüzler ve verdiğimiz talimatlar dışında bir yöntem kullanarak bunlara erişmeye teşebbüs etmek suretiyle amacı dışında kullanamazsınız.<br /><br />
+                                - Hiçbir virüsü, kötü amaçlı yazılımı veya diğer zararlı yazılım türlerini ya da söz konusu yazılımların bağlantılarını Hizmetler üzerinden iletemezsiniz.<br /><br />
+                                - Hizmetleri başkalarının fikri mülkiyet haklarını ihlal etmek veya yasadışı etkinlik yapmak üzere kullanamazsınız.<br /><br />
+                                - Hesaplara “bot” veya benzeri bir otomatik yöntemle kaydolamazsınız.<br />
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         }
         </div>
     </div>
-    }
+    @*"}" bunu sildik*@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

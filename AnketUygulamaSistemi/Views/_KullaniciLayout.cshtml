@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+        
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -54,13 +54,13 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Anket Uygulama Sistemi</a>
+        <a class="navbar-brand" href="/Home/AnketGoruntule">Anket Uygulama Sistemi</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="/Home/AnketGoruntule">Anasayfa <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/Home/AnketGoruntule">Anasayfa <span class="sr-only">(current)</span></a>
                 @if (Session["Kullanici"] == null)
                 {
                     <a class="nav-item nav-link" href="/Home/Index">Giriş Yap/Kayıt Ol</a>
@@ -79,27 +79,22 @@
         </div>
         @using (Html.BeginForm("AnketDetay", "Home", FormMethod.Post, new { @class = "form-inline" }))
         {
-                <input class="form-control mr-sm-2" type="text" id="id" oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="id" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" id="searchBtn" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="text" id="id" oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="id" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary" id="searchBtn" type="submit">Search</button>
         }
-        </nav>
+    </nav>
     <div>
         @RenderBody()
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    @*<script>
-        $("#searchBtn").click(function () {
-            var anketId = document.getElementById("search");
-            console.log(anketId);
-            $.ajax({
-                type: "POST",
-                url: "/Home/AnketDetay/" + anketId
-            })
-            //location.reload(true);
 
-        });        
-    </script>*@
+    <footer class="footer">
+        <div class="footer-copyright text-center py-3">
+            <p class="mt-5 mb-3 text-muted">© 2019 HISGH Comparation AŞ LTD ŞTİ</p>
+        </div>
+
+    </footer>
 
 </body>
 </html>

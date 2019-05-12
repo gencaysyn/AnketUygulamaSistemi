@@ -9,6 +9,10 @@
     <Property Name="anketTur" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="anketSoruSayisi" Type="int" Nullable="false" />
     <Property Name="anketKullaniciId" Type="int" Nullable="false" />
+    <Property Name="gTarih" Type="date" />
+    <Property Name="sinir" Type="int" />
+    <Property Name="oTarih" Type="date" />
+    <Property Name="gorunurluk" Type="int" />
   </EntityType>
   <EntityType Name="AnketTipleri">
     <Key>
@@ -24,6 +28,14 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="soruId" Type="int" Nullable="false" />
     <Property Name="cevap" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IpAdresleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ipAdres" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="anketId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Kullanici">
     <Key>
@@ -64,6 +76,7 @@
     <EntitySet Name="Anket" EntityType="Self.Anket" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AnketTipleri" EntityType="Self.AnketTipleri" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cevaplar" EntityType="Self.Cevaplar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IpAdresleri" EntityType="Self.IpAdresleri" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Secenekler" EntityType="Self.Secenekler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />

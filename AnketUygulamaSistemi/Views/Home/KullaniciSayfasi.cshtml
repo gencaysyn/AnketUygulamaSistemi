@@ -63,7 +63,7 @@
                                             <label style="font-weight:bold;">Şifre</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            @ViewBag.kul.sifre
+                                            ******
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                                                 Değiştir
@@ -129,20 +129,62 @@
                                     <hr />
                                 </div>
                                 <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                    <ul>
-                                        @foreach (var anket in Model)
-                                        {
-                                            string href = "/Home/AnketDetay/" + anket.anketId;
-                                            string href2 = "/Home/Rapor/" + anket.anketId;
-                                           
-                                        <li>
-                                            <a href=@href>@anket.anketAdi</a> 
-                                            <a href=@href2>Rapor</a>
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Anket Adı</th>
+                                                <th scope="col">Anket Kodu</th>
+                                                <th scope="col">Anket Kategorisi</th>
+                                                <th scope="col">Link</th>
+                                                <th scope="col">Rapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{int i = 1;}
+                                            @foreach (var anket in Model)
+                                            {
+                                                string href = "/Home/AnketDetay/" + anket.anketId;
+                                                string href2 = "/Home/Rapor/" + anket.anketId;
 
-                                        </li>
-                                        }
-                                        
-                                    </ul>
+                                            <tr>
+                                                <th scope="row">@i</th>
+                                                <td>@anket.anketAdi</td>
+                                                <td>@anket.anketId</td>
+                                                @switch (anket.anketTur)
+                                                {
+                                                    case "1":
+                                                        <td>Müşteri Memnuniyeti</td>
+                                                        break;
+                                                    case "2":
+                                                        <td>Demografi</td>
+                                                        break;
+                                                    case "3":
+                                                        <td>Etkinlik</td>
+                                                        break;
+                                                    case "4":
+                                                        <td>Pazarlama</td>
+                                                        break;
+                                                    case "5":
+                                                        <td>Politika</td>
+                                                        break;
+                                                    case "6":
+                                                        <td>Test</td>
+                                                        break;
+                                                    default:
+                                                        <td>Diğer</td>
+                                                        break;
+                                                }
+
+
+                                                <td><a href=@href>Ankete Git</a></td>
+                                                <td><a href=@href2>Git</a></td>
+                                            </tr>
+                                                i++;
+                                                }
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -159,13 +201,13 @@
     var password = document.getElementById("yeniSifre")
     var confirm_password = document.getElementById("tYeniSifre");
 
-    function validatePassword() {
-        if (password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
-    }
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+                                                function validatePassword() {
+                                                    if (password.value != confirm_password.value) {
+                                                        confirm_password.setCustomValidity("Passwords Don't Match");
+                                                    } else {
+                                                        confirm_password.setCustomValidity('');
+                                                    }
+                                                }
+                                                password.onchange = validatePassword;
+                                                confirm_password.onkeyup = validatePassword;
 </script>

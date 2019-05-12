@@ -126,6 +126,9 @@
     <Compile Include="Models\Cevaplar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IpAdresleri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Kullanici.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
